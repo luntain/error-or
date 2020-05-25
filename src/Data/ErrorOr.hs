@@ -131,6 +131,7 @@ instance ErrorConv ErrorOr IO where
   toE (Error e) = failWith e
 
 
+-- TODO delete that class in favour of MonadFail
 class Failable m where failWith :: ErrorAcc -> m a
 
 instance {-# OVERLAPPING #-} Failable Maybe where failWith _ = Nothing
